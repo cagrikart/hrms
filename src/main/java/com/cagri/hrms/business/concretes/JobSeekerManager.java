@@ -1,6 +1,10 @@
 package com.cagri.hrms.business.concretes;
 
 import com.cagri.hrms.business.abstracts.JobSeekerService;
+import com.cagri.hrms.core.utilities.results.DataResult;
+import com.cagri.hrms.core.utilities.results.Result;
+import com.cagri.hrms.core.utilities.results.SuccesDataResults;
+import com.cagri.hrms.core.utilities.results.SuccesResult;
 import com.cagri.hrms.dataAccess.abstracts.JobSeekerDao;
 import com.cagri.hrms.entities.concretes.JobSeeker;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +21,14 @@ public class JobSeekerManager  implements JobSeekerService {
         this.jobSeekerDao = jobSeekerDao;
     }
 
+
     @Override
-    public List<JobSeeker> getAll() {
-        return jobSeekerDao.findAll();
+    public DataResult<List<JobSeeker>> getAll() {
+        return new SuccesDataResults<List<JobSeeker>>(this.jobSeekerDao.findAll(),"JobSeeker Listelendi");
+    }
+    public Result add (JobSeeker jobSeeker){
+        this.jobSeekerDao.save(jobSeeker);
+        return new SuccesResult(true,"Jobseeker eklendi");
+
     }
 }

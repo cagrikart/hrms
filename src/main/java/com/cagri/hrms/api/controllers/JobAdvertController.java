@@ -1,11 +1,12 @@
 package com.cagri.hrms.api.controllers;
 
 import com.cagri.hrms.business.abstracts.JobAdvertService;
+import com.cagri.hrms.core.utilities.results.DataResult;
+import com.cagri.hrms.core.utilities.results.Result;
+import com.cagri.hrms.core.utilities.results.SuccesDataResults;
 import com.cagri.hrms.entities.concretes.JobAdvert;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,7 +21,11 @@ public class JobAdvertController {
     }
 
     @GetMapping("/getall")
-    public List<JobAdvert> getAll(){
-        return this.jobAdvertService.getAll();
+    public DataResult<List<JobAdvert>> getAll() {
+      return this.jobAdvertService.getAll();
+    }
+    @PostMapping("/add")
+    public Result add(@RequestBody JobAdvert jobAdvert) {
+        return this.jobAdvertService.add(jobAdvert);
     }
 }

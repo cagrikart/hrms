@@ -1,6 +1,10 @@
 package com.cagri.hrms.business.concretes;
 
 import com.cagri.hrms.business.abstracts.EmployerService;
+import com.cagri.hrms.core.utilities.results.DataResult;
+import com.cagri.hrms.core.utilities.results.Result;
+import com.cagri.hrms.core.utilities.results.SuccesDataResults;
+import com.cagri.hrms.core.utilities.results.SuccesResult;
 import com.cagri.hrms.dataAccess.abstracts.EmployerDao;
 import com.cagri.hrms.entities.concretes.Employer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +22,13 @@ public class EmployerManager implements EmployerService {
     }
 
     @Override
-    public List<Employer> getAll() {
-        return employerDao.findAll();
+    public DataResult<List<Employer>> getAll() {
+        return  new SuccesDataResults<List<Employer>>(this.employerDao.findAll(),"Listelendi.");
+    }
+
+    @Override
+    public Result add(Employer employer) {
+        this.employerDao.save(employer);
+        return new SuccesResult(true,"ürün eklendi");
     }
 }
