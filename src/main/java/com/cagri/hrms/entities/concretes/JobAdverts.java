@@ -21,7 +21,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = false)
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "favorites"})
 
-public class JobAdvert {
+public class JobAdverts {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

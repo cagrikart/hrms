@@ -3,7 +3,7 @@ package com.cagri.hrms.api.controllers;
 import com.cagri.hrms.business.abstracts.EmployerService;
 import com.cagri.hrms.core.utilities.results.DataResult;
 import com.cagri.hrms.core.utilities.results.Result;
-import com.cagri.hrms.entities.concretes.Employer;
+import com.cagri.hrms.entities.concretes.Employers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,12 +20,12 @@ public class EmployerController {
     }
 
     @GetMapping("/getall")
-    public DataResult<List<Employer>> getAll() {
+    public DataResult<List<Employers>> getAll() {
         return this.employerService.getAll();
     }
 
     @PostMapping("/add")
-    public Result add(@RequestBody Employer employer) {
+    public Result add(@RequestBody Employers employer) {
         return this.employerService.add(employer);
     }
 }

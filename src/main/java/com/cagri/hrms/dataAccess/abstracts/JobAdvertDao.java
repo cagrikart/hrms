@@ -1,9 +1,7 @@
 package com.cagri.hrms.dataAccess.abstracts;
 
-import com.cagri.hrms.entities.concretes.JobAdvert;
+import com.cagri.hrms.entities.concretes.JobAdverts;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-
-public interface JobAdvertDao extends JpaRepository<JobAdvert,Integer> {
+public interface JobAdvertDao extends JpaRepository<JobAdverts,Integer> {
 }

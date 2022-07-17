@@ -6,8 +6,7 @@ import com.cagri.hrms.core.utilities.results.Result;
 import com.cagri.hrms.core.utilities.results.SuccesDataResults;
 import com.cagri.hrms.core.utilities.results.SuccesResult;
 import com.cagri.hrms.dataAccess.abstracts.JobAdvertDao;
-import com.cagri.hrms.entities.concretes.Employer;
-import com.cagri.hrms.entities.concretes.JobAdvert;
+import com.cagri.hrms.entities.concretes.JobAdverts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,12 +23,12 @@ public class JobAdvertManager implements JobAdvertService {
 
 
     @Override
-    public DataResult<List<JobAdvert>> getAll() {
-        return new SuccesDataResults<List<JobAdvert>>(this.jobAdvertDao.findAll(),"JobAdvert Listelendi");
+    public DataResult<List<JobAdverts>> getAll() {
+        return new SuccesDataResults<List<JobAdverts>>(this.jobAdvertDao.findAll(),"JobAdvert Listelendi");
     }
 
     @Override
-    public Result add(JobAdvert jobAdvert) {
+    public Result add(JobAdverts jobAdvert) {
         this.jobAdvertDao.save(jobAdvert);
         return new SuccesResult(true,"job advert eklendi");
     }

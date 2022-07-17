@@ -3,7 +3,6 @@ package com.cagri.hrms.api.controllers;
 import com.cagri.hrms.business.abstracts.JobSeekerService;
 import com.cagri.hrms.core.utilities.results.DataResult;
 import com.cagri.hrms.core.utilities.results.Result;
-import com.cagri.hrms.entities.concretes.JobAdvert;
 import com.cagri.hrms.entities.concretes.JobSeeker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
